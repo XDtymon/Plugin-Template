@@ -1,0 +1,13 @@
+name: PluginTemplate
+description: $description
+prefix: PowerNetworks
+version: '${version}'
+
+main: dev.pewienkot.pluginTemplate.PluginTemplate
+bootstrapper: dev.pewienkot.pluginTemplate.PluginTemplateBootstrap
+loader: dev.pewienkot.pluginTemplate.PluginTemplateLoader
+api-version: '26.3'
+load: POSTWORLD
+
+authors: [ PewienKot_ ]
+website: None
