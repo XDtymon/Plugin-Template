@@ -1,9 +1,7 @@
-package dev.pewienkot.boxMoneyConverter.config;
+package dev.pewienkot.pluginTemplate.configuration;
 
-import dev.pewienkot.boxMoneyConverter.BoxPlugin;
-import dev.pewienkot.boxMoneyConverter.messages.Message;
 import dev.pewienkot.pluginTemplate.PluginTemplate;
-import net.kyori.adventure.text.Component;
+import dev.pewienkot.pluginTemplate.messages.Message;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -41,10 +39,6 @@ public class PluginConfiguration {
     private int updateTime;
     private boolean debug;
 
-    private int payoutTicks;
-    private int forcePayoutTicks;
-    private Message payoutActionbar;
-
     private FileConfiguration lang;
 
     // ======================================================== REGISTRY
@@ -56,7 +50,7 @@ public class PluginConfiguration {
 
     /**
      * Loads config and lang
-     * Used for {@link BoxPlugin#reload()}
+     * Used for {@link PluginTemplate#reload()}
      * */
     public void load() {
         plugin.saveDefaultConfig();
@@ -70,11 +64,6 @@ public class PluginConfiguration {
         debug = readDebug(config);
         prefix = Placeholder.parsed("prefix", lang.getString("prefix", "<gray>[<gold>BoxMoneyConverter</gold>]"));
 
-        payoutTicks = readInt(config, "player-payout-time", 60);
-        forcePayoutTicks = readInt(config, "player-force-payout-time", 400);
-
-        payoutActionbar = readMessage(config, "payout-actionbar", "<green>+ <white><profit><green>$");
-
         plugin.getLogger().info("Successfully loaded plugin's configuration!");
 
         /*
@@ -87,7 +76,8 @@ public class PluginConfiguration {
     // ======================================================== RELOAD
 
     /**
-     * Same as load XD
+     * Same as load <p>
+     * Used in {@link PluginTemplate#reload()}
      */
     public void reload() {
         load();

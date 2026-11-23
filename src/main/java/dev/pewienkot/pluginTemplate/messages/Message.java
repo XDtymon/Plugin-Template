@@ -7,7 +7,9 @@ import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.Bukkit;
 
-//TODO: encomment this class
+/**
+ * TODO: comment this shi
+ */
 public class Message {
 
     private static final MiniMessage MINI = MiniMessage.miniMessage();

@@ -24,17 +24,6 @@ public class Messages {
     public final Message PLUGIN_RELOAD;
     public final Message PLUGIN_ABORT;
 
-    // ========================================= EXCHANGE
-    public final Message EXCHANGE_NOT_FOUND;
-
-    /** Placeholders: <code>'block', 'value'</code> **/
-    public final Message EXCHANGE_ILLEGAL_MONEY_VALUE;
-    /** Placeholders: <code>'block'</code> **/
-    public final Message EXCHANGE_ILLEGAL_BLOCK_VALUE;
-
-    // ========================================= VAULT
-    public final Message VAULT_NOT_FOUND;
-
     // ======================================================== REGISTRY
     public Messages(PluginTemplate plugin) {
 
@@ -55,27 +44,6 @@ public class Messages {
                 "<prefix> <red>Plugin had <dark_red><b>crashed</b>"
         );
 
-        // ------------------------------------------------------------------------------------------------------------------ EXCHANGE
-        EXCHANGE_NOT_FOUND = textFromLang(
-                "exchange.not-found",
-                "<prefix> <white>exchange <red>section in <white>config.yml <red>not found"
-        );
-
-        EXCHANGE_ILLEGAL_MONEY_VALUE = textFromLang(
-                "exchange.illegal-money-value",
-                "<prefix> <red>Block <white><block> <red>has an illegal money value <white><value><red>!"
-        );
-
-        EXCHANGE_ILLEGAL_BLOCK_VALUE = textFromLang(
-                "exchange.illegal-block-value",
-                "<prefix> <red>Block <white><block> <red>is not a block!"
-        );
-
-        // ------------------------------------------------------------------------------------------------------------------ VAULT
-        VAULT_NOT_FOUND = textFromLang(
-                "vault-not-found",
-                "<prefix> <gold>Vault <red>plugin not found!"
-        );
     }
 
     // ================================================ UTILITY

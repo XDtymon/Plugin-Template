@@ -3,6 +3,9 @@ package dev.pewienkot.pluginTemplate;
 import io.papermc.paper.plugin.bootstrap.BootstrapContext;
 import io.papermc.paper.plugin.bootstrap.PluginBootstrap;
 
+/**
+ * TODO: comment this shi
+ */
 class PluginTemplateBootstrap implements PluginBootstrap {
 
     @Override

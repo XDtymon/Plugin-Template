@@ -1,13 +1,41 @@
+# Plugin name
 name: PluginTemplate
+
+# Description
 description: $description
-prefix: PowerNetworks
+
+# Prefix
+prefix: PluginTemplate
+
+# Version
 version: '${version}'
 
+# Plugin's classes
+
+## MAIN
 main: dev.pewienkot.pluginTemplate.PluginTemplate
-bootstrapper: dev.pewienkot.pluginTemplate.PluginTemplateBootstrap
+## BOOTSTRAP
+bootstrap: dev.pewienkot.pluginTemplate.PluginTemplateBootstrap
+## LOADER
 loader: dev.pewienkot.pluginTemplate.PluginTemplateLoader
+
+# Plugin's Minecraft Version
 api-version: '26.3'
+
+# Load Type
 load: POSTWORLD
 
-authors: [ PewienKot_ ]
+# Authors
+authors:
+  - PewienKot_ [coding]
+
+# Website
 website: None
+
+# Permissions
+permissions:
+
+  ## ADMIN
+  generators.admin:
+    default: op
+    children: []
