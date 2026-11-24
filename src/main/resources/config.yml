@@ -31,3 +31,35 @@ language: en
 # In ticks
 # Available options: 1, 2, 4, 5, 10, 20
 update-time: 1
+
+
+#
+# DATABASE
+#
+
+database:
+
+  # Database type
+  # SQLITE or MY_SQL
+  type: SQLITE
+
+  # If MY_SQL does not work, switch to SQLITE and inform the console.
+  # If false, a failing MY_SQL means no database at all.
+  fallback-to-sqlite: true
+
+  # true = items of slots removed from this config are deleted from the database,
+  # false = they are kept (and come back if the slot is added again)
+  purge-removed-slots: false
+
+  # Database type settings
+
+  sqlite:
+    file: database.db
+
+  mysql:
+    host: localhost
+    port: 3306
+    database: armory
+    username: root
+    password: "root"
+    use-ssl: false

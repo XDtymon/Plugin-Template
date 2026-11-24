@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 
 /**
  * Contains all Plugin's Configuration
+ * TODO: MORE COMMENTING
  */
 public class PluginConfiguration {
 
@@ -66,11 +67,6 @@ public class PluginConfiguration {
 
         plugin.getLogger().info("Successfully loaded plugin's configuration!");
 
-        /*
-        plugin.getLogger().info("Language: " + language
-                + ", update-time: " + updateTime + " tick(s)"
-                + ", info-reset-time: " + infoResetTime + " tick(s)");
-         */
     }
 
     // ======================================================== RELOAD

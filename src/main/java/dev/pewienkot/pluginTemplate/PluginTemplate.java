@@ -1,10 +1,13 @@
 package dev.pewienkot.pluginTemplate;
 
-import dev.pewienkot.boxMoneyConverter.config.PluginConfiguration;
+import dev.pewienkot.pluginTemplate.command.pluginTemplate.PluginTemplateCommandTree;
+import dev.pewienkot.pluginTemplate.configuration.PluginConfiguration;
 import dev.pewienkot.pluginTemplate.handler.ListenerHandler;
 import dev.pewienkot.pluginTemplate.messages.Messages;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,19 +15,13 @@ public final class PluginTemplate extends JavaPlugin {
 
     // ------------------------------------------------ FIELDS
 
-    /**
-     * Plugin's configuration
-     **/
+    /** Plugin's configuration **/
     private PluginConfiguration configuration;
-    /**
-     * Plugin's messages
-     **/
+    /** Plugin's messages **/
     private Messages messages;
 
 
-    /**
-     * Plugin's listenerHandler
-     **/
+    /** Plugin's listenerHandler **/
     private ListenerHandler listenerHandler;
 
     // ================================================= STARTUP
@@ -48,9 +45,15 @@ public final class PluginTemplate extends JavaPlugin {
         configuration = new PluginConfiguration(this);
         messages = new Messages(this);
 
-        getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event -> event.registrar().register(new BoxMoneyConverter(this).create()));
+        listenerHandler = new ListenerHandler(this);
 
-        getLogger().info("Plugin launched successfully! debug=" + configuration.isDebug());
+        getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event -> {
+            event.registrar().register(new PluginTemplateCommandTree(this).create());
+        });
+
+        if (configuration.isDebug()) {
+            getComponentLogger().info(Component.text("Plugin launched in debug mode!", NamedTextColor.GOLD));
+        }
     }
 
     // ================================================= RELOAD

@@ -1,7 +1,7 @@
 plugins {
     id("java-library")
-    alias(libs.plugins.shadow)
-    alias(libs.plugins.run.paper)
+    id("com.gradleup.shadow") version "9.6.1"
+    id("xyz.jpenilla.run-paper") version "3.1.0"
 }
 
 repositories {
@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly(libs.paper.api)
+    compileOnly("io.papermc.paper:paper-api:26.3.build.+")
 }
 
 java {
@@ -23,12 +23,15 @@ tasks {
     }
 
     runServer {
-        minecraftVersion(libs.versions.minecraft.get())
+        // Configure the Minecraft version for our task.
+        // This is the only required configuration besides applying the plugin.
+        // Your plugin's jar (or shadowJar if present) will be used automatically.
+        minecraftVersion("26.3")
         jvmArgs("-Xms2G", "-Xmx2G", "-Dcom.mojang.eula.agree=true")
     }
 
     processResources {
-        val props = mapOf("version" to version , "description" to project.description )
+        val props = mapOf("version" to version, "description" to project.description)
         filesMatching("paper-plugin.yml") {
             expand(props)
         }

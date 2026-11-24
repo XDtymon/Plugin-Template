@@ -10,11 +10,15 @@ import io.papermc.paper.command.brigadier.Commands;
 import java.util.List;
 
 /**
- * TODO: comment this shi
+ * Simple CommandTree
+ * This one is used for <code>reload</code>s
  */
 public class PluginTemplateCommandTree extends CommandBase {
 
+    /** List of Tree's branches **/
     private final List<CommandBase> branches;
+
+    // ========================================= REGISTRY
 
     public PluginTemplateCommandTree(PluginTemplate plugin) {
         super(plugin);
@@ -26,6 +30,7 @@ public class PluginTemplateCommandTree extends CommandBase {
 
     // ========================================= REGISTER
 
+    /** @return CommandTree's root  **/
     public LiteralCommandNode<CommandSourceStack> create() {
 
         String mainCommand = "pluginTemplate";
@@ -54,6 +59,7 @@ public class PluginTemplateCommandTree extends CommandBase {
         throw new UnsupportedOperationException("use create()");
     }
 
+    /** @return View permission value of the command **/
     @Override
     public String viewPermission() {
         return "pluginTemplate.admin";
